@@ -23,7 +23,7 @@ const Courses = () => {
                                     <p className='font-bold text-base text-slate-800'>{course.name}</p>
                                     <p className='mt-3 text-gray-500 text-sm'>{course.short_des}</p>
                                 </div>
-                                <p className='px-5 pb-5 mt-4 font-bold text-2xl text-teal-500'>{course.price}</p>
+                                <p className='px-5 pb-5 mt-4 font-bold text-xl text-teal-500'>{course.price}</p>
                             </Link>
                         )
                     })
