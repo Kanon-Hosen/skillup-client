@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Blog from '../pages/Blog';
 import Course from '../pages/Course';
+import Error from '../pages/Error';
 import Faq from '../pages/Faq';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
@@ -16,11 +17,13 @@ const MainRoute = () => {
             <Routes>
                 <Route path='/' element={<Home></Home>}></Route>
                 <Route path='/course' element={<Course></Course>}></Route>
+                <Route path='/course/:name' element={<Course></Course>}></Route>
                 <Route path='/blog' element={<Blog></Blog>}></Route>
                 <Route path='/faq' element={<Faq></Faq>}></Route>
                 <Route path='/login' element={<Login></Login>}></Route>
                 <Route path='/register' element={<Register></Register>}></Route>
                 <Route path='/profile' element={<Profile></Profile>}></Route>
+                <Route path='*' element={<Error></Error>}></Route>
             </Routes>
         </BrowserRouter>
     );
