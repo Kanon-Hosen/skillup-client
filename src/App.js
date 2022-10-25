@@ -1,10 +1,11 @@
 import './App.css';
+import MainRoute from './MainRoutes/MainRoute';
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <>
+      <MainRoute></MainRoute>
+    </>
   );
 }
 
