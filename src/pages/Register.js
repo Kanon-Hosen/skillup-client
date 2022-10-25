@@ -1,12 +1,26 @@
 import React from "react";
+import { useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { contextProvier } from "../Context/MainContext";
 const Register = () => {
+  const { createUser } = useContext(contextProvier);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const UserCreate = (event) => {
+    event.preventDefault();
+    createUser(email, password)
+      .then((user) => {
+      console.log("🚀 ~ file: Register.js ~ line 15 ~ .then ~ user", user)   
+      })
+    .catch((err)=>console.log(err))
+  }
   return (
     <div>
       <div className="w-full shadow-lg mx-auto mt-20 max-w-md p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800">
         <h1 className="text-4xl font-bold text-center">Register</h1>
-        <form className="space-y-6 ng-untouched ng-pristine ng-valid">
+        <form onSubmit={UserCreate} className="space-y-6 ng-untouched ng-pristine ng-valid">
           <div className="space-y-1 text-sm">
             <label htmlFor="username" className="block text-gray-700">
               Username
@@ -38,6 +52,7 @@ const Register = () => {
               Email
             </label>
             <input
+              onChange={(e)=> setEmail(e.target.value)}
               type="email"
               name="email"
               id="email"
@@ -51,6 +66,7 @@ const Register = () => {
               Password
             </label>
             <input
+              onChange={(e)=> setPassword(e.target.value)}
               type="password"
               name="password"
               id="password"
