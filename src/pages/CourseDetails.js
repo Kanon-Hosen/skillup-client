@@ -1,12 +1,11 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useLocation, useParams } from "react-router";
+import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import Faq from "../components/Faq";
 
 const CourseDetails = () => {
-  const { name } = useParams();
   const location = useLocation();
 
   const [course, setCourse] = useState({});
