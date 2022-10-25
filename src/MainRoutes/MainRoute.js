@@ -1,8 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import Blog from '../pages/Blog';
 import Course from '../pages/Course';
+import CourseDetails from '../pages/CourseDetails';
 import Error from '../pages/Error';
 import Faq from '../pages/Faq';
 import Home from '../pages/Home';
@@ -17,7 +19,7 @@ const MainRoute = () => {
             <Routes>
                 <Route path='/' element={<Home></Home>}></Route>
                 <Route path='/course' element={<Course></Course>}></Route>
-                <Route path='/course/:name' element={<Course></Course>}></Route>
+                <Route path='/course/:name' element={<CourseDetails></CourseDetails>}></Route>
                 <Route path='/blog' element={<Blog></Blog>}></Route>
                 <Route path='/faq' element={<Faq></Faq>}></Route>
                 <Route path='/login' element={<Login></Login>}></Route>
@@ -25,6 +27,7 @@ const MainRoute = () => {
                 <Route path='/profile' element={<Profile></Profile>}></Route>
                 <Route path='*' element={<Error></Error>}></Route>
             </Routes>
+            <Footer></Footer>
         </BrowserRouter>
     );
 };
