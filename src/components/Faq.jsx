@@ -4,9 +4,9 @@ const Faq = () => {
     return (
         <div className='mt-8'>
             <section className=" text-gray-800">
-	<div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
+	<div className=" flex flex-col justify-center p-4 mx-auto md:p-8">
 		<h2 className="mb-12 text-3xl font-bold leading-none text-center">Frequently Asked Questions</h2>
-		<div className="grid gap-20 px-32  md:grid-cols-2 ">
+		<div className="grid md:gap-20 gap-8 lg:px-32 px-8 md:grid-cols-2 ">
 			<div>
 				<h3 className="font-semibold">When does the course start and finish?</h3>
 				<p className="mt-1 text-gray-600 text-sm">The course starts now and never ends! It is a completely self-paced online course - you decide when you start and when you finish.</p>

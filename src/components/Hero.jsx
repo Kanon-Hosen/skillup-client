@@ -13,15 +13,15 @@ const Hero = () => {
       </div>
       <div className="absolute top-16 w-full h-96 flex items-center justify-center bg-gray-900 bg-opacity-40">
         <section className=" text-gray-100">
-          <div className="flex flex-col items-center text-center">
-            <h1 className="text-4xl font-bold leading-none">
+          <div className="flex flex-col items-center text-center px-8">
+            <h1 className="text-3xl md:text-4xl font-bold leading-none">
             Coding and design courses
             </h1>
             <p className=" mt-3 mb-6 text-sm font-semibold">
             Learn programming technologies like HTML & CSS, Javascript, React and more.
             </p>
             <div className="flex flex-wrap justify-center">
-              <button className="px-8 py-3 text-basae font-semibold rounded-full bg-teal-500 text-gray-50 ">
+              <button className="px-8 py-3 text-basae font-semibold rounded-full bg-teal-500 hover:bg-teal-600 transition-all text-gray-50 ">
                 <Link to='/course'>
                 View Courses                
                 </Link>
