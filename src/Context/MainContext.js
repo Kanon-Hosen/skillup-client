@@ -1,6 +1,6 @@
 import React from 'react';
 import { createContext } from 'react';
-import {createUserWithEmailAndPassword,signInWithEmailAndPassword} from 'firebase/auth'
+import {createUserWithEmailAndPassword,signInWithEmailAndPassword, signOut} from 'firebase/auth'
 import { auth  } from '../Config/Config';
 export const contextProvier = createContext();
 const MainContext = ({ children }) => {
@@ -11,7 +11,10 @@ const MainContext = ({ children }) => {
     const loginUser = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
-    const allContext = { createUser ,loginUser };
+    const logOut = () => {
+       signOut(auth)
+    }
+    const allContext = { createUser ,loginUser, logOut };
     return (
         <contextProvier.Provider value={allContext}>
             {children}

@@ -31,16 +31,18 @@ const CourseDetails = () => {
           <div className="px-32 mt-10 flex justify-between items-center py-8 gap-14">
               <div className="w-1/2">
               <h1 className="text-slate-800 font-bold text-xl mb-4">{course.name}</h1>
-                <p className="text-base text-gray-600 ">{course.des}</p>
-                <button className="text-gray-50 px-10 py-3 font-semibold hover:bg-teal-600 transition-color bg-teal-500 rounded-full  mt-4 "> Enroll now {course.price}</button>
+              <p className="text-base text-gray-600 ">{course.des}</p>
+              <button className="mt-4 bg-teal-500 px-6 py-2 rounded-full text-gray-50 font-semibold">
+            <Link to='/checkout'>Enroll now {course.price}</Link>
+              </button>
               </div>
               <div className="rounded-2xl overflow-hidden w-1/2">
                   <img src={course.img} alt="" />
               </div>
           </div>
           <div>
-                  <Faq></Faq>
-              </div>
+            <Faq></Faq>
+          </div>
     </div>
   );
 };

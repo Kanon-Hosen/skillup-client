@@ -1,8 +1,9 @@
 import React from 'react';
 import {useAuthState} from 'react-firebase-hooks/auth'
 import { Navigate, useLocation } from 'react-router';
+import { auth } from '../Config/Config';
 const PrivateRoute = ({children}) => {
-    const [user, loading] = useAuthState();
+    const [user, loading] = useAuthState(auth);
     const location = useLocation()
     if (loading) {
         return <div>
