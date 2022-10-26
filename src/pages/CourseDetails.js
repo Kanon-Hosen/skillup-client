@@ -22,7 +22,7 @@ const CourseDetails = () => {
           <h1 className="text-4xl font-bold leading-none s">{course.name}</h1>
           <p className="px-8  text-sm mt-4">{course.short_des}</p>
           <div className="flex flex-wrap justify-center">
-            <Link className="px-8 py-3 m-2 text-lg font-semibold rounded-full bg-teal-500 text-gray-50 mt-5 hover:bg-teal-600 transition-colors">
+            <Link to='/checkout' className="px-8 py-3 m-2 text-lg font-semibold rounded-full bg-teal-500 text-gray-50 mt-5 hover:bg-teal-600 transition-colors">
               Enroll in course for {course.price}
             </Link>
           </div>
@@ -31,8 +31,8 @@ const CourseDetails = () => {
           <div className="px-32 mt-10 flex justify-between items-center py-8 gap-14">
               <div className="w-1/2">
               <h1 className="text-slate-800 font-bold text-xl mb-4">{course.name}</h1>
-                  <p className="text-base text-gray-600 ">{course.des}</p>
-                  <button className="text-gray-50 px-10 py-3 font-semibold hover:bg-teal-600 transition-color bg-teal-500 rounded-full  mt-4 ">Enroll now {course.price}</button>
+                <p className="text-base text-gray-600 ">{course.des}</p>
+                <button className="text-gray-50 px-10 py-3 font-semibold hover:bg-teal-600 transition-color bg-teal-500 rounded-full  mt-4 "> Enroll now {course.price}</button>
               </div>
               <div className="rounded-2xl overflow-hidden w-1/2">
                   <img src={course.img} alt="" />

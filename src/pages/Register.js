@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { contextProvier } from "../Context/MainContext";
 import { updateProfile } from 'firebase/auth';
 import { auth } from "../Config/Config";
@@ -13,7 +13,7 @@ const Register = () => {
   const [username, setUsername] = useState('');
   const [error, setError] = useState('');
   const [photourl, setPhotourl] = useState('');
-
+  const navigate = useNavigate();
   const UserCreate = (event) => {
     event.preventDefault();
     const form = event.target;

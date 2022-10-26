@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import Blog from '../pages/Blog';
+import Checkout from '../pages/Checkout';
 import Course from '../pages/Course';
 import CourseDetails from '../pages/CourseDetails';
 import Error from '../pages/Error';
@@ -11,6 +12,7 @@ import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Profile from '../pages/Profile';
 import Register from '../pages/Register';
+import PrivateRoute from '../Private/PrivateRoute';
 
 const MainRoute = () => {
     return (
@@ -25,6 +27,7 @@ const MainRoute = () => {
                 <Route path='/login' element={<Login></Login>}></Route>
                 <Route path='/register' element={<Register></Register>}></Route>
                 <Route path='/profile' element={<Profile></Profile>}></Route>
+                <Route path='/checkout' element={<PrivateRoute><Checkout></Checkout></PrivateRoute>}></Route>
                 <Route path='*' element={<Error></Error>}></Route>
             </Routes>
             <Footer></Footer>
