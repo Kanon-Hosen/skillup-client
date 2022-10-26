@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { contextProvier } from "../Context/MainContext";
 import { updateProfile } from 'firebase/auth';
 import { auth } from "../Config/Config";
-
+import { useAuthState } from "react-firebase-hooks/auth";
 const Register = () => {
   const { createUser } = useContext(contextProvier);
   const [email, setEmail] = useState('');
@@ -14,18 +14,23 @@ const Register = () => {
   const [error, setError] = useState('');
   const [photourl, setPhotourl] = useState('');
   const navigate = useNavigate();
+  const [loading] = useAuthState(auth);
+  const [loader, setLoader] = useState(false);
   const UserCreate = (event) => {
     event.preventDefault();
+    setLoader(true)
     const form = event.target;
     createUser(email, password)
       .then((user) => {
         profile()
         form.reset()
+        navigate('/')
       console.log("🚀 ~ file: Register.js ~ line 15 ~ .then ~ user", user)   
       })
       .catch((err) => {
         console.log(err)
         form.reset()
+        setLoader(false)
         setError(err.message)
 
     })
@@ -47,7 +52,10 @@ const Register = () => {
   }
   return (
     <div>
-      <div className="w-full shadow-lg mx-auto mt-20 max-w-md p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800">
+      <div className="w-full relative shadow-lg mx-auto mt-20 max-w-md p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800">
+      <div className={`${loading || loader ? 'visible' : 'hidden'} flex absolute items-center justify-center w-full  h-full `}>
+				<div className="w-20 h-20 border-8 border-dashed rounded-full animate-spin border-green-600 z-20"></div>
+			</div>
         <h1 className="text-4xl font-bold text-center">Register</h1>
         <form onSubmit={UserCreate} className="space-y-6 ng-untouched ng-pristine ng-valid">
           <div className="space-y-1 text-sm">
@@ -144,7 +152,7 @@ const Register = () => {
         <p className="text-xs text-center sm:px-6 text-gray-700">
           Already have an account?
           <Link
-            to="/register"
+            to="/login"
             className="underline text-teal-500 font-semibold "
           >
             Sign in
