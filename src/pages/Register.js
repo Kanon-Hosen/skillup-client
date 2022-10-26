@@ -3,18 +3,47 @@ import { useState } from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { contextProvier } from "../Context/MainContext";
+import { updateProfile } from 'firebase/auth';
+import { auth } from "../Config/Config";
+
 const Register = () => {
   const { createUser } = useContext(contextProvier);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
+  const [error, setError] = useState('');
+  const [photourl, setPhotourl] = useState('');
 
   const UserCreate = (event) => {
     event.preventDefault();
+    const form = event.target;
     createUser(email, password)
       .then((user) => {
+        profile()
+        form.reset()
       console.log("🚀 ~ file: Register.js ~ line 15 ~ .then ~ user", user)   
       })
-    .catch((err)=>console.log(err))
+      .catch((err) => {
+        console.log(err)
+        form.reset()
+        setError(err.message)
+
+    })
+  }
+
+  const profile = () => {
+    updateProfile(auth.currentUser, {
+      displayName: username, photoURL: photourl
+    }).then(() => {
+      // Profile updated!
+      // ...
+    }).catch((error) => {
+      // An error occurred
+      // ...
+      setError(error.message)
+      console.log(error.message)
+      return
+    });
   }
   return (
     <div>
@@ -26,6 +55,7 @@ const Register = () => {
               Username
             </label>
             <input
+              onChange={(e)=> setUsername(e.target.value)}
               type="text"
               name="username"
               id="username"
@@ -39,6 +69,7 @@ const Register = () => {
               PhotoUrl
             </label>
             <input
+              onChange={(e)=> setPhotourl(e.target.value)}
               type="text"
               name="photourl"
               id="photourl"
@@ -78,6 +109,7 @@ const Register = () => {
               <Link>Forgot Password?</Link>
             </div>
           </div>
+          <p className="font-semibold text-red-500 text-sm">{error}</p>
           <button className="block w-full p-3 text-center rounded-sm text-gray-50 font-semibold bg-teal-500">
             Sign in
           </button>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { createContext } from 'react';
-import { auth, createUserWithEmailAndPassword  } from '../Config/Config';
+import {createUserWithEmailAndPassword} from 'firebase/auth'
+import { auth  } from '../Config/Config';
 export const contextProvier = createContext();
 const MainContext = ({ children }) => {
     const createUser = (email, password) => {
