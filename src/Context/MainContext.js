@@ -1,6 +1,6 @@
 import React from 'react';
 import { createContext } from 'react';
-import {createUserWithEmailAndPassword,signInWithEmailAndPassword, signOut} from 'firebase/auth'
+import {createUserWithEmailAndPassword,GithubAuthProvider,GoogleAuthProvider,signInWithEmailAndPassword, signInWithPopup, signOut} from 'firebase/auth'
 import { auth  } from '../Config/Config';
 export const contextProvier = createContext();
 const MainContext = ({ children }) => {
@@ -14,7 +14,18 @@ const MainContext = ({ children }) => {
     const logOut = () => {
        signOut(auth)
     }
-    const allContext = { createUser ,loginUser, logOut };
+    // google login
+    const provider = new GoogleAuthProvider();
+    const googleLogin = () => {
+        return signInWithPopup(auth, provider)
+    }
+
+    //github login
+    const gitProvider = new GithubAuthProvider();
+    const gitLogin = () => {
+        return signInWithPopup(auth, gitProvider)
+    }
+    const allContext = { createUser ,loginUser, logOut,googleLogin, gitLogin };
     return (
         <contextProvier.Provider value={allContext}>
             {children}

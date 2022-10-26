@@ -11,7 +11,7 @@ const Courses = () => {
             .then(data => setCourses(data))
     },[])
     return (
-        <div className='mt-16 md:px-28 px-12 h-full py-6'>
+        <div className='mt-16 lg:px-28 px-12 h-full py-6'>
             <h1 className='text-center md:text-3xl text-2xl font-bold text-slate-800 mb-8'>Featured Courses</h1>
             <div className='grid lg:grid-cols-3 gri md:grid-cols-2 gap-10'>
                 {
@@ -19,7 +19,7 @@ const Courses = () => {
                         return (
                             <Link to={`/${course.name}`} state={course.id} key={course.id} className='cursor-pointer shadow-md rounded-3xl overflow-hidden hover:shadow-xl transition-shadow h-full'>
                                 <img src={course.img} alt="" />
-                                <div className='mt-4 px-5 h-28'>
+                                <div className='mt-4 px-5 lg:h-28'>
                                     <p className='font-bold text-sm md:text-base text-slate-800'>{course.name}</p>
                                     <p className='mt-3 text-gray-500 text-sm'>{course.short_des}</p>
                                 </div>

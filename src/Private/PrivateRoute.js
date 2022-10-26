@@ -5,6 +5,7 @@ import { auth } from '../Config/Config';
 const PrivateRoute = ({children}) => {
     const [user, loading] = useAuthState(auth);
     const location = useLocation()
+    console.log("🚀 ~ file: PrivateRoute.js ~ line 8 ~ PrivateRoute ~ location", location)
     if (loading) {
         return <div>
         <div className="flex absolute items-center justify-center z-30 w-full bg-slate-400 h-full bg-opacity-25">
@@ -15,7 +16,7 @@ const PrivateRoute = ({children}) => {
     if (user) {
         return children
     }
-    return <Navigate to='/login' state={{from: location}} replace></Navigate>
+    return <Navigate to='/login' state={{from: location,}} replace></Navigate>
 };
 
 export default PrivateRoute;

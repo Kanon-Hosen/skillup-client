@@ -1,0 +1,17 @@
+<BrowserRouter>
+            <Navbar></Navbar>
+            <Routes>
+                <Route path='/' element={<Home></Home>}></Route>
+                <Route path='/course' loader={fetch('http://localhost:5000/courses')} element={<Course></Course>}></Route>
+                <Route path='/:name' element={<CourseDetails></CourseDetails>}></Route>
+                <Route path='/course/:id' element={<Course></Course>}></Route>
+                <Route path='/blog' element={<Blog></Blog>}></Route>
+                <Route path='/faq' element={<Faq></Faq>}></Route>
+                <Route path='/login' element={<Login></Login>}></Route>
+                <Route path='/register' element={<Register></Register>}></Route>
+                <Route path='/profile' element={<Profile></Profile>}></Route>
+                <Route path='/checkout' element={<PrivateRoute><Checkout></Checkout></PrivateRoute>}></Route>
+                <Route path='*' element={<Error></Error>}></Route>
+            </Routes>
+            <Footer></Footer>
+        </BrowserRouter>

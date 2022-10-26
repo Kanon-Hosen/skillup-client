@@ -6,6 +6,7 @@ import Blog from '../pages/Blog';
 import Checkout from '../pages/Checkout';
 import Course from '../pages/Course';
 import CourseDetails from '../pages/CourseDetails';
+import CourseId from '../pages/CourseId';
 import Error from '../pages/Error';
 import Faq from '../pages/Faq';
 import Home from '../pages/Home';
@@ -22,6 +23,7 @@ const MainRoute = () => {
                 <Route path='/' element={<Home></Home>}></Route>
                 <Route path='/course' element={<Course></Course>}></Route>
                 <Route path='/:name' element={<CourseDetails></CourseDetails>}></Route>
+                <Route path='/course/:id' element={<CourseId></CourseId>}></Route>
                 <Route path='/blog' element={<Blog></Blog>}></Route>
                 <Route path='/faq' element={<Faq></Faq>}></Route>
                 <Route path='/login' element={<Login></Login>}></Route>

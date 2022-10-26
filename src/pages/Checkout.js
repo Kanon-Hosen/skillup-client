@@ -3,26 +3,24 @@ import { useLocation } from "react-router";
 
 const Checkout = () => {
   const location = useLocation();
-
+  console.log("🚀 ~ file: Checkout.js ~ line 6 ~ Checkout ~ location", location)
   return (
-    <div className="mt-20 md:px-20 px-8">
-      <h1 className="text-center font-semibold text-slate-700 text-3xl py-5">
-        {location.state.name}
+    <div className="mt-20 lg:px-20 md:px-10 px-8">
+          <h1 className="text-center font-semibold text-slate-700 text-3xl py-5">
+        {location.state?.name}
       </h1>
       <div className="flex flex-col md:flex-row items-center justify-between gap-5">
         <div className="md:w-1/2 w-full">
-                  <img className="rounded-lg p-1" src={location.state.img} alt="" />
-              <p className="mt-4 text-gray-600">{location.state.des}</p>
+          <img className="rounded-lg p-1" src={location.state?.img} alt="" />
+          <p className="mt-4 text-gray-600">{location.state?.des}</p>
                   
               </div>
         <div className="md:w-1/2 w-full">
           <section className="p-6 text-gray-800">
             <form
-              novalidate=""
-              action=""
               className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid"
             >
-              <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm ">
+              <fieldset className="grid grid-cols-4 gap-4 p-6 rounded-md shadow-sm ">
                 <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                   <div className="col-span-full sm:col-span-3">
                     <label for="firstname" className="text-sm">
@@ -92,7 +90,7 @@ const Checkout = () => {
                   </div>
                   <div className="col-span-full sm:col-span-2">
                     <label for="zip" className="text-sm">
-                      ZIP / Postal
+                      ZIP 
                     </label>
                     <input
                       id="zip"
