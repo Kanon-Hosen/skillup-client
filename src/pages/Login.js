@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { contextProvier } from "../Context/MainContext";
 
 const Login = () => {
@@ -9,12 +9,16 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
+  const navigate = useNavigate();
   const userLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     loginUser(email, password)
       .then(() => {
         form.reset();
+        navigate(from, {replace:true} )
       })
       .catch((err) => {
         setError(err.message);
@@ -60,7 +64,7 @@ const Login = () => {
             </div>
           </div>
           <p className="font-semibold text-red-500 text-sm">{error}</p>
-          <button className="block w-full p-3 text-center rounded-sm text-gray-50 font-semibold bg-teal-500">
+          <button className="block w-full p-3 text-center rounded-sm text-gray-50 font-semibold bg-teal-500" >
             Sign in
           </button>
         </form>
