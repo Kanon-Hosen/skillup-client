@@ -17,7 +17,7 @@ const Courses = () => {
                 {
                     courses.map(course => {
                         return (
-                            <Link to={`course/${course.name}`} state={course.id} key={course.id} className='cursor-pointer shadow-md rounded-3xl overflow-hidden hover:shadow-xl transition-shadow'>
+                            <Link to={`/${course.name}`} state={course.id} key={course.id} className='cursor-pointer shadow-md rounded-3xl overflow-hidden hover:shadow-xl transition-shadow'>
                                 <img src={course.img} alt="" />
                                 <div className='mt-4 px-5 h-28'>
                                     <p className='font-bold text-base text-slate-800'>{course.name}</p>

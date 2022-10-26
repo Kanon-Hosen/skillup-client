@@ -3,7 +3,8 @@ import { useState } from "react";
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { contextProvier } from "../Context/MainContext";
-
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../Config/Config";
 const Login = () => {
   const { loginUser } = useContext(contextProvier);
   const [email, setEmail] = useState("");
@@ -11,8 +12,13 @@ const Login = () => {
   const [error, setError] = useState("");
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
+  const [loading] = useAuthState(auth);
+  const [loader, setLoader] = useState(false);
+
+
   const navigate = useNavigate();
   const userLogin = (e) => {
+    setLoader(true)
     e.preventDefault();
     const form = e.target;
     loginUser(email, password)
@@ -23,11 +29,16 @@ const Login = () => {
       .catch((err) => {
         setError(err.message);
         form.reset();
+    setLoader(false)
+
       });
   };
   return (
     <div>
-      <div className="w-full shadow-lg mx-auto mt-20 max-w-md p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800">
+      <div className="relative w-full shadow-lg mx-auto mt-20 max-w-md p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800">
+      <div className={`${loading || loader ? 'visible' : 'hidden'} flex absolute items-center justify-center w-full  h-full `}>
+				<div className="w-20 h-20 border-8 border-dashed rounded-full animate-spin border-green-600 z-20"></div>
+			</div>
         <h1 className="text-4xl font-bold text-center">Login</h1>
         <form
           onSubmit={userLogin}
