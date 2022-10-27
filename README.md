@@ -1,5 +1,4 @@
 <h1>Skill Up</h1>
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1b4438a6-bfe6-4631-b745-83959add74a3/deploy-status)](https://app.netlify.com/sites/harmonious-faun-562aff/deploys)
 
 live site : https://harmonious-faun-562aff.netlify.app/login
 <li>Skill Up is an online learning platfrom website</li>
