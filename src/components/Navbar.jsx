@@ -49,11 +49,13 @@ const Navbar = () => {
         ) : user ? (
           <div  className="flex gap-5 items-center">
             {user.photoURL ? (
-                <img
+                <Link to='/profile'>
+                    <img
                     title={user.displayName}
                   src={user.photoURL}
                   className="tooltipImg hover:scale-105 focus:ring-teal-600 w-10 h-10 object-cover rounded-full cursor-pointer relative" alt=""
                 />
+                </Link>
 
             ) : (
               <p  className="font-semibold text-teal-500 text-base cursor-pointer">

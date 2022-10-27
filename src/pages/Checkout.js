@@ -13,7 +13,7 @@ const Checkout = () => {
         <div className="md:w-1/2 w-full">
           <img className="rounded-lg p-1" src={location.state?.img} alt="" />
           <p className="mt-4 text-gray-600">{location.state?.des}</p>
-                  
+          <p className="font-semibold text-teal-500 mt-4 text-2xl">{location.state?.price}</p>    
               </div>
         <div className="md:w-1/2 w-full">
           <section className="p-6 text-gray-800">
