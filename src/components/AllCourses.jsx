@@ -24,7 +24,7 @@ const AllCourses = () => {
             </h1>
             <div className="grid lg:grid-cols-3 gri md:grid-cols-2 gap-10">
               <Link
-                to={`/${course.name}`}
+                to={`course/${course.name}`}
                 state={course.id}
                 key={course.id}
                 className="cursor-pointer shadow-md rounded-3xl overflow-hidden hover:shadow-xl transition-shadow h-full"

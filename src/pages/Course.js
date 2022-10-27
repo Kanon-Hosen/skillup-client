@@ -5,7 +5,7 @@ import Sidebar from '../components/Sidebar';
 const Course = () => {
     return (
         <div className='flex justify-between'>
-            <div className='w-60'>
+            <div className='md:w-60 w-40'>
             <Sidebar></Sidebar>
             </div>
             <div className='w-full'>

@@ -22,8 +22,10 @@ const MainRoute = () => {
             <Routes>
                 <Route path='/' element={<Home></Home>}></Route>
                 <Route path='/course' element={<Course></Course>}></Route>
-                <Route path='/:name' element={<CourseDetails></CourseDetails>}></Route>
-                <Route path='/course/:id' element={<CourseId></CourseId>}></Route>
+                <Route path='course/:name' element={<CourseDetails></CourseDetails>}></Route>
+                <Route path='course/course/:name' element={<CourseDetails></CourseDetails>}></Route>
+                <Route path='/courses/:id' element={<CourseId></CourseId>}></Route>
+                <Route path='/courses/:id/course/:name' element={<CourseDetails></CourseDetails>}></Route>
                 <Route path='/blog' element={<Blog></Blog>}></Route>
                 <Route path='/faq' element={<Faq></Faq>}></Route>
                 <Route path='/login' element={<Login></Login>}></Route>
